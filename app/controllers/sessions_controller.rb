@@ -11,7 +11,7 @@ class SessionsController < ApplicationController
       redirect_to root_path
     else
       flash.now[:error] = "there is something wrong"
-      render 'new'
+      render :'sessions/new'
     end
   end
 
