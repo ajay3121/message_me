@@ -11,29 +11,16 @@
           <%=render @messages %>
         </div>
       </div>
-      <% if logged_in?%>
       <div class="extra content">
-        <form class="ui reply form">
-            <div class="field">
-              <div class="ui fluid icon input">
-                <input type="text" placeholder="Enter a message.."></input>
-                <i class="bordered inverted green edit icon"></i>
-              </div>
-            </div>
-        </form>
-      </div>
-      <%else%>
-        <div class="ui icon message">
-          <i class="notched circle loading icon"></i>
-          <div class="content">
-            <div class="header">
-              To Enter The Chatroom Please Login
-            </div>
+      <%= form_for @message, html: { class: "ui reply form", role: "form" } do |f| %>
+        <div class="field">
+          <div class="ui fluid icon input">
+            <%= f.text_field :body %>
+            <%= f.button '<i class="bordered inverted green edit icon"></i>'.html_safe %>
           </div>
-          <%= link_to "Login", login_path,class: " right floated positive ui  button" %>
-<!--          <button class="  right floated positive ui  button">Login</button>-->
         </div>
-      <%end %>
+      <% end %>
+      </div>
     </div>
   </div>
 
